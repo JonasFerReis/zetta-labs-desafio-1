@@ -6,6 +6,8 @@ import './App.scss';
 import Layout from "./pages/Layout";
 import Characters from "./pages/Characters";
 import CharacterInfo from "./pages/CharacterInfo";
+import Locations from "./pages/Locations";
+import LocationInfo from "./pages/LocationInfo";
 
 export default function App() {
 
@@ -36,7 +38,11 @@ export default function App() {
         },
         {
           path: "locations",
-          element: <div>Locais</div>,
+          element: <Locations />,
+        },
+        {
+          path: "locations/:id",
+          element: <LocationInfo />
         },
         {
           path: "episodes",

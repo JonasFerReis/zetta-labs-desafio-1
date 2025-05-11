@@ -7,13 +7,13 @@ interface Props {
 
 export default function Card({ image, title, btnText, onBtnClick }: Props) {
   return (
-    <div className="card">
-      <img src={image} className="card-img-top" alt={title}></img>
+    <div className="card shadow" style={{ width: "16rem" }}>
+      <img className="card-img-top" src={image} alt={title} />
       <div className="card-body">
-        <h2 className="fs-5 card-title">
+        <p className="fs-5 fw-medium card-title">
           {title}
-        </h2>
-        <button onClick={onBtnClick} className="btn btn-primary">
+        </p>
+        <button onClick={onBtnClick} className="btn btn-sm btn-primary">
           {btnText}
         </button>
       </div>

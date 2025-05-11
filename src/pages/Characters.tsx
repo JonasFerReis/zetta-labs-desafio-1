@@ -18,15 +18,20 @@ export default function Characters() {
   }
 
   return (
-    <div className="d-flex flex-wrap gap-4 justify-content-center">
-      {data?.results.map((char: Character) =>
-        <Card
-          image={char.image}
-          title={char.name}
-          btnText="Mais Informações"
-          onBtnClick={() => handleClickCharacter(char.id)}
-        />
-      )}
+    <div>
+      <h1 className="text-center mb-4">
+        Personagens
+      </h1>
+      <div className="d-flex flex-wrap gap-4 justify-content-center">
+        {data?.results.map((char: Character) =>
+          <Card
+            image={char.image}
+            title={char.name}
+            btnText="Mais Informações"
+            onBtnClick={() => handleClickCharacter(char.id)}
+          />
+        )}
+      </div>
     </div>
   );
 }

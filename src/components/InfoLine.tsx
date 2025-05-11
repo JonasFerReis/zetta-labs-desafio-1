@@ -6,10 +6,10 @@ interface Props {
 export default function InfoLine({ label, text}: Props) {
   return (
     <div>
-      <span className="fw-bold pe-1">
+      <span className="fw-medium pe-1">
         {label}:
       </span>
-      <span>
+      <span className="text-muted">
         {text ? text : "Unknown"}
       </span>
     </div>

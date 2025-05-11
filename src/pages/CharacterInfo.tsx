@@ -20,13 +20,17 @@ export default function CharacterInfo() {
 
   return (
     <>
-      <div className="card shadow">
-        <div className="row">
-          <div className="col-md-5">
-            <img className="w-100 rounded-start" src={character?.image} alt={character?.name} />
-          </div>
+      <button className="btn btn-primary mb-4" onClick={handleNavigatePrev}>
+        Voltar
+      </button>
 
-          <div className="col-md-7">
+      <div className="row row-gap-4">
+        <div className="col-md-4">
+          <img className="w-100 img-fluid shadow img-thumbnail" src={character?.image} alt={character?.name} />
+        </div>
+
+        <div className="col-md-8">
+          <div className="card shadow h-100">
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-start">
                 <h2 className="fs-4 card-title">
@@ -59,10 +63,6 @@ export default function CharacterInfo() {
           </div>
         </div>
       </div>
-
-      <button className="btn btn-primary mt-4" onClick={handleNavigatePrev}>
-        Voltar
-      </button>
     </>
   );
 }
