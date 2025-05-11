@@ -1,29 +1,28 @@
 import { Link } from "react-router-dom";
-import "../styles/Header.scss";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
+    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand fs-3 fw-medium" to="/">
-          Obras.com
+          Rick and Morty
         </Link>
 
-        <div className="collapse navbar-collapse">
+        <div>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Início
+              <Link className="nav-link" to="/characters">
+                Personagens
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/projetos">
-                Projetos
+              <Link className="nav-link" to="/locations">
+                Locais
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contato">
-                Contato
+              <Link className="nav-link" to="/episodes">
+                Episódios
               </Link>
             </li>
           </ul>
