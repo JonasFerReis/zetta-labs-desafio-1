@@ -4,10 +4,12 @@ import Footer from "../components/Footer";
 
 export default function Layout() {
   return (
-    <div>
+    <>
       <Header />
-      {<Outlet />}
+      <main className="main container py-4">
+        {<Outlet />}
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
