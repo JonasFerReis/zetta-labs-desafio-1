@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.scss'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import './App.scss';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Componentes
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Characters from "./pages/Characters";
+import CharacterInfo from "./pages/CharacterInfo";
+import Locations from "./pages/Locations";
+import LocationInfo from "./pages/LocationInfo";
+import Episodes from "./pages/Episodes";
+import EpisodeInfo from "./pages/EpisodeInfo";
+
+export default function App() {
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        retry: false,
+        staleTime: 5 * 60 * 1000,
+      },
+    },
+  });
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />
+        },
+        {
+          path: "characters",
+          element: <Characters />,
+        },
+        {
+          path: "characters/:id",
+          element: <CharacterInfo />,
+        },
+        {
+          path: "locations",
+          element: <Locations />,
+        },
+        {
+          path: "locations/:id",
+          element: <LocationInfo />
+        },
+        {
+          path: "episodes",
+          element: <Episodes />,
+        },
+        {
+          path: "episode/:id",
+          element: <EpisodeInfo />,
+        },
+      ],
+    },
+  ]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
-
-export default App
