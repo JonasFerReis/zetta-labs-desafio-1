@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
-import { getLocationById } from "../services/LocationService";
+import { getEpisodeById } from "../services/EpisodeService";
 import { getMultiCharactersById } from "../services/CharacterService";
 import Card from "../components/Card";
 import InfoLine from "../components/InfoLine";
 
-export default function LocationInfo() {
+export default function EpisodeInfo() {
 
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [residentIds, setResidentIds] = useState<number[]>();
+  const [episodeCharactersIds, setEpisodeCharactersIds] = useState<number[]>();
 
-  const { data: location } = useQuery({
-    queryKey: ["location", id],
-    queryFn: () => getLocationById(Number(id)),
+  const { data: episode } = useQuery({
+    queryKey: ["episode", id],
+    queryFn: () => getEpisodeById(Number(id)),
     enabled: !!id,
   });
 
-  const { data: residents } = useQuery({
-    queryKey: ["residents", id],
-    queryFn: () => getMultiCharactersById(residentIds || []),
-    enabled: !!residentIds,
+  const { data: characters } = useQuery({
+    queryKey: ["episodeCharacters", id],
+    queryFn: () => getMultiCharactersById(episodeCharactersIds || []),
+    enabled: !!episodeCharactersIds,
   });
 
   function handleNavigatePrev() {
@@ -34,11 +34,11 @@ export default function LocationInfo() {
   }
 
   useEffect(() => {
-    const ids = location?.residents.map((residentUrl) =>
+    const ids = episode?.characters.map((residentUrl) =>
       Number(residentUrl.split("character/")[1])
     );
-    setResidentIds(ids);
-  }, [location]);
+    setEpisodeCharactersIds(ids);
+  }, [episode]);
 
   return (
     <>
@@ -49,19 +49,19 @@ export default function LocationInfo() {
       <div className="card shadow mb-4">
         <div className="card-body">
           <h1 className="fs-3 card-title">
-            {location?.name}
+            {episode?.name}
           </h1>
-          <InfoLine label="Dimensão" text={location?.dimension} />
-          <InfoLine label="População" text={location?.residents.length.toString()} />
+          <InfoLine label="Código" text={episode?.episode} />
+          <InfoLine label="Data de lançamento" text={episode?.air_date} />
         </div>
       </div>
 
       <div>
         <h2 className="fs-4 text-center mb-4">
-          Habitantes
+          Participantes
         </h2>
         <div className="d-flex flex-wrap justify-content-center gap-4">
-          {residents?.map((char) =>
+          {characters?.map((char) =>
             <Card
               image={char.image}
               title={char.name}

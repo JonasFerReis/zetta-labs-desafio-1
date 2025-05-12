@@ -8,6 +8,8 @@ import Characters from "./pages/Characters";
 import CharacterInfo from "./pages/CharacterInfo";
 import Locations from "./pages/Locations";
 import LocationInfo from "./pages/LocationInfo";
+import Episodes from "./pages/Episodes";
+import EpisodeInfo from "./pages/EpisodeInfo";
 
 export default function App() {
 
@@ -46,7 +48,11 @@ export default function App() {
         },
         {
           path: "episodes",
-          element: <div>episodios</div>,
+          element: <Episodes />,
+        },
+        {
+          path: "episode/:id",
+          element: <EpisodeInfo />,
         },
       ],
     },
