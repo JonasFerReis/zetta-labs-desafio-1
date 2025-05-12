@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import NavbarLink from './NavbarLink';
 
 export default function Footer() {
