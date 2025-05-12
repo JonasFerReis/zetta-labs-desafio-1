@@ -1,29 +1,24 @@
 import { Link } from "react-router-dom";
+import NavbarLink from "./NavbarLink";
 
 export default function Header() {
   return (
-    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand fs-3 fw-medium" to="/">
           Portal Rick and Morty
         </Link>
 
         <div>
-          <ul className="navbar-nav">
+          <ul className="navbar-nav gap-4">
             <li className="nav-item">
-              <Link className="nav-link" to="/characters">
-                Personagens
-              </Link>
+              <NavbarLink to="/characters" iconName="bi-person-fill" text="Personagens" />
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/locations">
-                Locais
-              </Link>
+              <NavbarLink to="/locations" iconName="bi bi-pin-map-fill" text="Locais" />
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/episodes">
-                Episódios
-              </Link>
+              <NavbarLink to="episodes" iconName="bi-film" text="Episódios" />
             </li>
           </ul>
         </div>

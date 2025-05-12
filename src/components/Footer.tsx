@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import NavbarLink from './NavbarLink';
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="container d-flex justify-content-between align-items-center">
         <div>
           <p className="fs-4 fw-medium mb-1">
-            Rick and Morty
+            Portal Rick and Morty
           </p>
           <p className="mb-0">
             &copy; {new Date().getFullYear()} Todos os direitos reservados
@@ -14,22 +15,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Links</h4>
-          <ul className="list-unstyled d-flex gap-3 mb-0">
-            <li>
-              <Link to="/characters" className="text-light text-decoration-none">
-                Personagens
-              </Link>
+          <p className="fs-4 fw-medium mb-1">
+            Links
+          </p>
+          <ul className="list-unstyled d-flex gap-3 mb-0 gap-4">
+            <li className="nav-item">
+              <NavbarLink to="/characters" iconName="bi-person-fill" text="Personagens" />
             </li>
-            <li>
-              <Link to="/locations" className="text-light text-decoration-none">
-                Locais
-              </Link>
+            <li className="nav-item">
+              <NavbarLink to="/locations" iconName="bi bi-pin-map-fill" text="Locais" />
             </li>
-            <li>
-              <Link to="/episodes" className="text-light text-decoration-none">
-                Episódios
-              </Link>
+            <li className="nav-item">
+              <NavbarLink to="episodes" iconName="bi-film" text="Episódios" />
             </li>
           </ul>
         </div>
