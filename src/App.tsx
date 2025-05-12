@@ -4,6 +4,7 @@ import './App.scss';
 
 // Componentes
 import Layout from "./pages/Layout";
+import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import CharacterInfo from "./pages/CharacterInfo";
 import Locations from "./pages/Locations";
@@ -30,6 +31,10 @@ export default function App() {
       path: "/",
       element: <Layout />,
       children: [
+        {
+          path: "/",
+          element: <Home />
+        },
         {
           path: "characters",
           element: <Characters />,

@@ -5,7 +5,9 @@ export default function Footer() {
     <footer className="bg-dark text-light py-3">
       <div className="container d-flex justify-content-between align-items-center">
         <div>
-          <h4>Rick and Morty</h4>
+          <p className="fs-4 fw-medium mb-1">
+            Rick and Morty
+          </p>
           <p className="mb-0">
             &copy; {new Date().getFullYear()} Todos os direitos reservados
           </p>

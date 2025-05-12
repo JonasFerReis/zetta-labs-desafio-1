@@ -5,7 +5,7 @@ export default function Header() {
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand fs-3 fw-medium" to="/">
-          Rick and Morty
+          Portal Rick and Morty
         </Link>
 
         <div>
