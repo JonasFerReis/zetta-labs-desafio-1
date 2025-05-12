@@ -1,8 +1,12 @@
 import { api } from "./AxiosConfig";
 import type { Location } from "../types/Location";
 
-export async function getAllLocations() {
-  const response = await api.get("location");
+export async function getAllLocations(page: number) {
+  const response = await api.get("location", {
+    params: {
+      page: page,
+    },
+  });
   return response?.data;
 }
 
