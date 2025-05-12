@@ -1,8 +1,12 @@
-import type { Character } from "../types/Character";
+import type { Character, GetCharacter } from "../types/Character";
 import { api } from "./AxiosConfig";
 
-export async function getAllCharacters() {
-  const response = await api.get("character");
+export async function getAllCharacters(page: number) {
+  const response = await api.get<GetCharacter>("character", {
+    params: {
+      page: page
+    },
+  });
   return response?.data;
 }
 

@@ -16,5 +16,15 @@ export interface Character {
   species: string;
   status: string;
   type: string;
-  url: string; 
+  url: string;
+}
+
+export interface GetCharacter {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string;
+  },
+  results: Character[];
 }
